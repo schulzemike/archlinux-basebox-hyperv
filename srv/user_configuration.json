@@ -1,0 +1,126 @@
+{
+    "additional-repositories": [
+        "multilib"
+    ],
+    "archinstall-language": "German",
+	"audio_config": {
+		"audio": "pipewire"
+	},
+	"bootloader": "Systemd-boot",
+    "config_version": "3.0.1",
+	"custom-commands": [
+		"systemctl enable sshd",
+		"sed -i 's/vagrant ALL=(ALL) ALL/vagrant ALL=(ALL) NOPASSWD: ALL/g' /etc/sudoers.d/00_vagrant",
+		"systemctl enable hv_kvp_daemon",
+		"systemctl enable hv_vss_daemon"
+	],
+    "debug": false,
+    "disk_config": {
+        "config_type": "default_layout",
+        "device_modifications": [
+            {
+                "device": "/dev/sda",
+                "partitions": [
+                    {
+                        "btrfs": [],
+						"dev_path": null,
+                        "flags": [
+                            "Boot",
+							"ESP"
+                        ],
+                        "fs_type": "fat32",
+                        "mount_options": [],
+                        "mountpoint": "/boot",
+                        "obj_id": "369f31a8-2781-4d6b-96e7-75680552b7c9",
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 1048576
+                        },
+						"size": {
+							"sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 1024
+						},
+                        "status": "create",
+                        "type": "primary"
+                    },
+                    {
+                        "btrfs": [],
+						"dev_path": null,
+                        "flags": [],
+                        "fs_type": "ext4",
+                        "mount_options": [],
+                        "mountpoint": "/",
+                        "obj_id": "3e75d045-21a4-429d-897e-8ec19a006e8b",
+                        "start": {
+                            "sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "B",
+                            "value": 1074790400
+                        },
+						"size": {
+							"sector_size": {
+                                "unit": "B",
+                                "value": 512
+                            },
+                            "unit": "MiB",
+                            "value": 80894
+						},
+                        "status": "create",
+                        "type": "primary"
+                    }
+                ],
+                "wipe": true
+            }
+        ]
+    },
+	"disk_encryption": null,
+    "hostname": "archlinux-basebox",
+    "kernels": [
+        "linux"
+    ],
+    "locale_config": {
+        "kb_layout": "de-latin1",
+        "sys_enc": "UTF-8",
+        "sys_lang": "de_DE.UTF-8"
+    },
+	"network_config": {
+		"type": "iso"
+	},
+    "no_pkg_lookups": false,
+    "ntp": true,
+	"offline": false,
+    "packages": [
+        "git",
+		"hyperv",
+		"linux-headers",
+		"man-db",
+		"man-pages",
+		"neovim",
+		"openssh",
+		"wget"
+    ],
+	"parallel downloads": 4,
+    "profile_config": {
+		"gfx_driver": "All open-source",
+		"greeter": "sddm",
+		"profile": {
+			"main": "Minimal"
+		}
+    },
+    "script": "unattended",
+    "silent": true,
+	"swap": false,
+    "timezone": "Europe/Berlin",
+	"uki": false,
+    "version": "3.0.1"
+}
