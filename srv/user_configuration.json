@@ -12,7 +12,8 @@
 		"systemctl enable sshd",
 		"sed -i 's/vagrant ALL=(ALL) ALL/vagrant ALL=(ALL) NOPASSWD: ALL/g' /etc/sudoers.d/00_vagrant",
 		"systemctl enable hv_kvp_daemon",
-		"systemctl enable hv_vss_daemon"
+		"systemctl enable hv_vss_daemon",
+		"systemctl enable reflector"
 	],
     "debug": false,
     "disk_config": {
@@ -100,6 +101,8 @@
     "ntp": true,
 	"offline": false,
     "packages": [
+	    "bash-completion",
+		"dex",
         "git",
 		"hyperv",
 		"linux-headers",
@@ -107,6 +110,8 @@
 		"man-pages",
 		"neovim",
 		"openssh",
+		"reflector",
+		"unzip",
 		"wget"
     ],
 	"parallel downloads": 4,

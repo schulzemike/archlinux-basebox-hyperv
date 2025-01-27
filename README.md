@@ -33,9 +33,14 @@ NOTICE: On my windows system I can not use SMB due to security policies on any o
 
 
 ### Contents
-- xrdp and xorgxrdp
-- pipewire and pipewire-module-xrdp
+- bash completion
+- dex to autostart desktop applications
+- man pages
 - pikaur as an AUR helper
+- pipewire and pipewire-module-xrdp
+- reflector to update pacman mirror lists
+- xrdp and xorgxrdp
+- unzip
 
 # Register the Basebox to your local vagrant installation
 vagrant box add --provider hyperv my-arch-basebox .\output\my-arch-base.box
