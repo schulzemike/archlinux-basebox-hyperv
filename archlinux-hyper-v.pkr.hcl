@@ -44,6 +44,7 @@ source "hyperv-iso" "arch-builder" {
 							"SCSI:0:1"
 						 ]
   cpus                 = 5
+  memory               = 4096
   communicator         = "ssh"
   disk_size            = 81920
   enable_secure_boot   = false
@@ -71,7 +72,7 @@ build {
 		"echo ${data.sshkey.vagrant.public_key} > /home/vagrant/.ssh/authorized_keys"
 	]
   }
-  
+
   provisioner "shell" {
 	script = "provision/00_pikaur.sh"
   }
@@ -79,7 +80,7 @@ build {
   provisioner "shell" {
  	script = "provision/01_install-xrdp.sh"
   }
-  
+
   provisioner "shell" {
  	script = "provision/02_config-xrdp.sh"
 	execute_command = "echo 'packer' | sudo -S env {{ .Vars }} {{ .Path }}"
@@ -96,7 +97,7 @@ build {
  	provider_override    = "hyperv"
  	vagrantfile_template = "vagrant/Vagrantfile"
  	include              = [
-                             "packer_cache/ssh_private_key_vagrant_id_rsa.pem"					   
+                             "packer_cache/ssh_private_key_vagrant_id_rsa.pem"
  	                       ]
   }
 }
